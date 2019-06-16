@@ -1,72 +1,263 @@
 <!DOCTYPE html>
 <html>
-<head>
-<style>
-body {
-    margin: 0;
-}
+  <head>
+    <!-- This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial-->
+    <!-- <link rel="stylesheet" href="/maps/documentation/javascript/demos/demos.css"> -->
+    <title>CHOI</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./js/youtube.js" type="text/javascript"></script>
+    <script src="./js/googleMap.js" type="text/javascript"></script>
+    <script src="./js/page.js" type="text/javascript"></script>
+  </head>
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 25%;
-    background-color: #f2f2f1;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
-}
+  <body>
 
-li a {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
-}
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top nav nav-tab">
+      <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2 ">
+        <a href="#home" class="w3-bar-item w3-button w3-mobile" onclick="tag_topic(9)">
+          <b>CHOI</b> Portfolio
+        </a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-hide-small w3-right">
+          <a href="#projects" class="w3-bar-item w3-button" onclick="tag_topic(0)">Projects</a>
+          <a href="#about" class="w3-bar-item w3-button" onclick="tag_topic(1)">About</a>
+          <a href="#contact" class="w3-bar-item w3-button w3-margin-right" onclick="tag_topic(2)">Contact</a>
+        </div>
 
-li a.active {
-    background-color: #4CAF50;
-    color: white;
-}
+      </div>
+    </div>
 
-li a:hover:not(.active) {
-    background-color: #555;
-    color: white;
-}
-</style>
-</head>
-<body>
+    <!-- Header -->
+    <header class="w3-display-container w3-content w3-wide w3-card-2"
+            style="max-width:1500px" id="home">
+      <div class="nav nav-tab">
+        <a href="#" class="w3-bar w3-white w3-wide w3-padding-8"> BLANK</a>
+      </div>
+      <img class="w3-image" src="./data/architect.jpg" alt="Architecture"
+           width="1500" height="366" style="min-height:150px">
+      <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white">
+          <a id="slogan" href="#projects" style="text-decoration:none">
+            <span class="w3-padding w3-black w3-opacity-min w3-hide-small"><b>KEEP</b></span>
+            <span class="w3-hide-small w3-text-light-grey w3-hide-small">LEARNING</span>
+          </a>
+        </h1>
+      </div>
+    </header>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
+    <!-- Page content -->
 
-<div style="margin-left:25%;padding:1px 16px;height:1000px;">
-  <h2>Profile</h2>
-  <h3>TAKCHOI YU</h3>
-  <p>tcyu@umich.edu</p>
-  <p>Graduate Student Research Assistance</p>
-  <p>           </p>
-  <p>Skills</p>
-  <p>Data Analysis, Machine learning, Embedded System, ROS, RTOS</p>
-  <p>            </p>
-  <p>Language</p>
-  <p>Python, MATLAB, C++, C, JAVA</p>
-  <p>         </p>
-  <p>Platform</p>
-  <p>Linux, Windows, Raspberry Pi 3, STM32F4 series, NVidia TX1</p>
-  <p>		</p>
-  <p>Project</p>
-  <p>On-road MultiObject Detection TX1</p>
-  <p>Motor Control PID in STM32F4 ARM board</p>
-  <p>OpenCV motion detection Pi3 ROS</p>
-  <p>Face Recognition MATLAB</p>
-  <p>Vehicle Maneuver Detection MATLAB (sensor fusion)</p>
-  
-</div>
+    <div class="w3-content w3-padding" style="max-width:1564px">
+      
+      <!-- Project Section -->
+      <div class="w3-container w3-padding-32 w3-card-4" id="projects">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Projects<input id="projects_bn" class="btn btn-outline-primary btn-sm w3-right" type="button" value="hide" onclick="toggle_content_projects()"></h3>
+        <div id="projects_content">
+          <h4 class="w3-border-bottom w3-border-light-grey"><b>Face Recognition</b></h4>
+                      <p>
+              <span class="badge badge-primary">Face Recognition</span>
+              <span class="badge badge-success">PCA</span>
+              <span class="badge badge-info">MachineLearning</span>
+              <span class="badge badge-danger">Matlab</span>
+              <span class="badge badge-primary">Face detection</span>
+            </p>
+          <p>May 2017 - Sep 2017</p>
+          <p>Real-Time Face Recognition System</p>
+          <p>Face Recognition system able to achieve 95% facial identification accuracy on the evaluation data set.
+It implements EigenFace PCA methods, PCA methods depend on the variation of data set.
+The base system data is included with Extended Yale B face sets.
+The dataset includes variations of head pose and illumination, those variations can be extracted by PCA methods to compose pose features with high PCA coefficients.
+Whenever new candidate is registered, the system will retrain the SVM-classifier with the Yale dataset with newly captured pictures for new candidate. 
+To achieve hard real-time performance with high accuracy of face detection, high filter threshold in traditional Vialo Jones face detection algorithm is used with KLT face tracking.
+</p>
+<h4 class="w3-border-bottom w3-border-light-grey"><b>Facial landmarks detection on ROS</b></h4>
+            <p>
+              <span class="badge badge-primary">RPI3B</span>
+              <span class="badge badge-success">Linux</span>
+              <span class="badge badge-info">C</span>
+              <span class="badge badge-danger">Python</span>
+              <span class="badge badge-primary">ROS</span>
+              <span class="badge badge-warning">Dlib</span>
+              <span class="badge badge-dark">OpenCV</span>
+            </p>
+<p>Oct 2017 – Dec 2017</p>
+<p>To study ROS system, in this project, face detection module from OpenCV with facial landmarks detection from dlib are used.
+The system operates at 10fps for every facial point detections in Raspberry Pi 3
+This ROS system composes with 3 main components, cv_camera_node, facial_landmarks_node, eye_pubvel.
+facial_landmarks_node subscribe images from cv_camera_node and publish detected facial infomation to eye_pubvel, it then publish speed and direction info to common ROS example turtleSim</p>
+<a href="http://github.com/choice17/ROS" style="color:blue">See Project</a>
+<h4 class="w3-border-bottom w3-border-light-grey"><b>Vehicle On-road Dynamic Scenario Classification</b>
+</h4>
+            <p>
+              <span class="badge badge-primary">ADAS</span>
+              <span class="badge badge-success">MachineLearning</span>
+              <span class="badge badge-info">DataAnalysis</span>
+              <span class="badge badge-danger">Matlab</span>
+              <span class="badge badge-primary">FeatureEngineer</span>
+              <span class="badge badge-warning">TimeSeriesAnalysis</span>
+            </p>
+<p>Sep 2017 – Dec 2017</p>
+<p>To understand driver behavior and vehicles on-road dynamic scenario, system can have a high abstract level of description on the road.
+It is observed that there is infinitely many variations of each scenarios, we defined the period of each event by average time duration of events in our label data.
+To build up a classification model on real-time on-road vehicle, this project tried to analysis vehicle on-board-diagnosis (OBD) data, with physiological signal.
+The neural network classifier able to achieve 70% classification accuracy on 5 vehicle maneuvers 
+Project includes developing labeling GUI, data labeling.
+data analysis, feature selection, implement stratified cross validation and model optimization.</p>
+<a href="https://drive.google.com/open?id=1jD0tSni1RCFrmflGxHv7pQbwDQxJO5LA" style="color:blue">See project</a>
+<h4 class="w3-border-bottom w3-border-light-grey"><b>PID motor control on STM32F407-Discovery board in RTOS</b>
+</h4>
+            <p>
+              <span class="badge badge-primary btn-sm">STM32</span>
+              <span class="badge badge-success">C</span>
+              <span class="badge badge-info">PID</span>
+              <span class="badge badge-danger">MotorControl</span>
+              <span class="badge badge-primary">IR-Sensor</span>
+              <span class="badge badge-warning">Sensor-Calibration</span>
+              <span class="badge badge-dark">LPF</span>
+              <span class="badge badge-info">RTOS</span>
+            </p>
+<p>Sep 2017 – Oct 2017<p>
+<p>This is a class project, it is to build a PID system to control the distance between the embedded car and the front obstacle. The system connects with a IR sensor to detect the distance to obstacle, a motor driver to control PWM, motor speed and direction in RTOS uCOS-II system.
+In the project, we studied the sensor calibration method, data filtering, RTOS, STM32F4 series board interface, PID implementation. 
+Whole project is writed in C, using µVision IDE - Keil 5.</p>
+<h4 class="w3-border-bottom w3-border-light-grey"><b>On-Road multi-Object detection</b>
+</h4>
+            <p>
+              <span class="badge badge-primary btn-sm">Linux</span>
+              <span class="badge badge-success">C</span>
+              <span class="badge badge-info">YOLO</span>
+              <span class="badge badge-danger">DeepLearning</span>
+              <span class="badge badge-primary">Nivida-TX1</span>
+              <span class="badge badge-warning">ComputerVision</span>
+              <span class="badge badge-dark">OpenCV</span>
+            </p>
+<p>Jan 2017 – May 2017<p>
+<p>Implement deep learning model to camera on Nvidia-TX1.
+Model is trained on Nvidia Titan-X GPU with public domain dataset.
+The model is tested on Nvidia-TX1, a small sized embedded system, it able to achieve nearly real-time performance at 12fps.</p>
+<a href="https://www.youtube.com/watch?v=iQx3mni21JM&feature=youtu.be&t=9m48s" style="color:blue">See Project</a>
+        <!-- Youtube -->
+          <div style="min-width:200px;min-height:300px;display:none" id="player" display="hide"></div>
+        </div>
 
-</body>
+      </div>
+      <!-- About Section -->
+      <div class="w3-container w3-padding-32 w3-card-4" id="about">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">
+         About<input id="about_bn" class="btn btn-outline-primary btn-sm w3-right" type="button" value="hide" onclick="toggle_content_about()"></h3>
+        <div id="about_content">
+
+</div>          <div class="card card-body">
+            <h4 class="w3-border-bottom w3-border-light-grey"><b>Info</b></h4>
+            <p class="w3-mobile"><span class="badge badge-secondary">Name</span> <span>Takchoi.Yu</span></p>
+            <p class="w3-mobile"><span class="badge badge-secondary">Email</span> <span>tcyu@umich.edu</span></p>
+            <p class="w3-mobile"><span class="badge badge-secondary">Linkedin</span> <span>id:takchoiyu</span></p>
+            <p class="w3-mobile"><span class="badge badge-secondary">Github</span> <span>id:choice17</span></p>
+            <p class="w3-mobile"><span class="badge badge-secondary">Location</span> <span>TW HsinChu</span></p>
+            <p class="w3-mobile"><span class="badge badge-secondary">Hobby</span> <span>Drawing</span> <span>MachineLearning-enthusiasm</span> <span>Kaggle-learner</span></p>
+            <h4 class="w3-border-bottom w3-border-light-grey"><b>Skill Set</b></h4>
+            <p>
+              <span class="badge badge-success">Embedded Linux</span>
+              <span class="badge badge-info">C</span>
+              <span class="badge badge-danger">Python</span>
+              <span class="badge badge-success">Matlab</span>
+              <span class="badge badge-primary">Flask</span>
+              <span class="badge badge-warning">RTSP</span>
+              <span class="badge badge-dark">H264/5</span>
+              <span class="badge badge-info">Jquery</span>
+              <span class="badge badge-success">Bootstrap</span>
+              <span class="badge badge-primary">AngularJs</span>
+              <span class="badge badge-danger">Tensorflow</span>
+              <span class="badge badge-info">Keras</span>
+              <span class="badge badge-dark">OpenCV</span>
+              <span class="badge badge-primary">MTCNN</span>
+              <span class="badge badge-success">Algorithm</span>
+              <span class="badge badge-danger">PID</span>
+              <span class="badge badge-warning">RTOS</span>
+              <span class="badge badge-info">ROS</span>
+              <span class="badge badge-dark">MachineLearning</span>
+              <span class="badge badge-info">NeuralNetwork</span>
+              <span class="badge badge-success">Nvidia-TX1</span>
+              <span class="badge badge-primary">Rpi3B</span>
+            </p>
+            <h4 class="w3-border-bottom w3-border-light-grey w3-padding-12">Experience</h4>
+              <!-- Google Map -->
+            <h5><b>Intelligent Video Analytic Engineer</b></h5>
+            <p>Augentix</p>
+            <p>Apr 2018 - Present</p>
+            <p>Hsinchu County, Taiwan</p>
+            <p>Duty: Research & Develop on Camera module application & Driver</p>
+            <p>
+              <span class="badge badge-primary">Arm</span>
+              <span class="badge badge-success">Embedded Linux</span>
+              <span class="badge badge-info">C</span>
+              <span class="badge badge-danger">Python</span>
+              <span class="badge badge-primary">flask</span>
+              <span class="badge badge-warning">RTSP</span>
+              <span class="badge badge-dark">H264/5</span>
+              <span class="badge badge-info">Jquery</span>
+              <span class="badge badge-success">Bootstrap</span>
+              <span class="badge badge-danger">Tensorflow</span>
+              <span class="badge badge-primary">MTCNN</span>
+            </p>
+            <h5><b>Graduate Student Research Assistant</b></h5>
+            <p>Univserity of Michigan - Rackham Graduate School</p>
+            <p>May 2017 - Jan 2018</p>
+            <p>Detroit Michigan, U.S.A</p>
+            <p>Duty: Research on ADAS project</p>
+            <p>
+              <span class="badge badge-primary">Matlab</span>
+              <span class="badge badge-success">Algorithm</span>
+              <span class="badge badge-info">ADAS</span>
+              <span class="badge badge-danger">PID</span>
+              <span class="badge badge-warning">RTOS</span>
+              <span class="badge badge-dark">MachineLearning</span>
+              <span class="badge badge-info">NeuralNetwork</span>
+              <span class="badge badge-success">Nvidia-TX1</span>
+              <span class="badge badge-success">Rpi3B</span>
+              <span class="badge badge-primary">YOLO</span>
+            </p>
+            <div id="googleMap" class="w3-bottommiddle" style="width:80%;height:450px;margin:auto"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="w3-container w3-padding-32 w3-card-4" id="contact">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Contact<input id="contact_bn" class="btn btn-outline-primary btn-sm w3-right" type="button" value="hide" onclick="toggle_content_contact()"></h3>
+        <div id="contact_content">
+        <p>Lets get in touch and get connected</p>
+        <form action="mailto:tcyu@umich.edu" target="_blank" method="get">
+          <input class="w3-input" type="text" placeholder="Name" required name="Name">
+          <input class="w3-input w3-section" type="text" placeholder="Email" required name="Email">
+          <input class="w3-input w3-section" type="text" placeholder="Subject" required name="Subject">
+          <input class="w3-input w3-section" type="text" placeholder="Comment" required name="Comment">
+          <tr>
+            <td><button class="w3-btn w3-section" type="submit">
+              <i class="fa fa-paper-plane"></i> SEND MESSAGE
+              </button>
+            </td>
+            <td><button class="w3-btn w3-section" type="reset">
+              <i class="fa fa-paper-plane"></i> RESET
+              </button>
+            </td>
+          </tr>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?8&callback=initMap"
+            async defer></script>
+    <script type="text/javascript">
+      $(document).ready(tag_topic(-1));
+    </script>
+  </body>
 </html>
