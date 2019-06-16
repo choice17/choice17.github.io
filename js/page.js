@@ -86,3 +86,13 @@ function toggle_content_contact() {
     c_c = 0;
   }
 }
+function tag_home() {
+  a_c = 1;
+  p_c = 1;
+  c_c = 1;
+  tag_topic(9);
+  toggle_content_projects();
+  toggle_content_about();
+  toggle_content_contact();
+
+}
