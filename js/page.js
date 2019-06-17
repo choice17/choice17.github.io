@@ -44,11 +44,13 @@ function toggle_content_about() {
     $("#about_content").show();
     $("#about_bn").val("hide");
     $("#about_bn").removeClass("btn-primary");
+    $("#about_bn").removeClass("btn-outline-primary");
     $("#about_bn").addClass("btn-outline-primary");
     a_c = 1;
   } else {
     $("#about_content").hide();
     $("#about_bn").val("show");
+    $("#about_bn").removeClass("btn-primary");
     $("#about_bn").removeClass("btn-outline-primary");
     $("#about_bn").addClass("btn-primary");
     a_c = 0;
@@ -60,11 +62,13 @@ function toggle_content_projects() {
     $("#projects_content").show();
     $("#projects_bn").val("hide");
     $("#projects_bn").removeClass("btn-primary");
+    $("#projects_bn").removeClass("btn-outline-primary");
     $("#projects_bn").addClass("btn-outline-primary");
     p_c = 1;
   } else {
     $("#projects_content").hide();
     $("#projects_bn").val("show");
+    $("#projects_bn").removeClass("btn-primary");
     $("#projects_bn").removeClass("btn-outline-primary");
     $("#projects_bn").addClass("btn-primary");
     p_c = 0;
@@ -76,11 +80,13 @@ function toggle_content_contact() {
     $("#contact_content").show();
     $("#contact_bn").val("hide");
     $("#contact_bn").removeClass("btn-primary");
+    $("#contact_bn").removeClass("btn-outline-primary");
     $("#contact_bn").addClass("btn-outline-primary");
     c_c = 1;
   } else {
     $("#contact_content").hide();
     $("#contact_bn").val("show");
+    $("#contact_bn").removeClass("btn-primary");
     $("#contact_bn").removeClass("btn-outline-primary");
     $("#contact_bn").addClass("btn-primary");
     c_c = 0;
