@@ -43,16 +43,16 @@ function toggle_content_about() {
   if (!a_c) {
     $("#about_content").show();
     $("#about_bn").val("hide");
-    $("#about_bn").removeClass("btn-primary");
-    $("#about_bn").removeClass("btn-outline-primary");
-    $("#about_bn").addClass("btn-outline-primary");
+    $("#about_bn").removeClass("btn-secondary");
+    $("#about_bn").removeClass("btn-outline-secondary");
+    $("#about_bn").addClass("btn-outline-secondary");
     a_c = 1;
   } else {
     $("#about_content").hide();
     $("#about_bn").val("show");
-    $("#about_bn").removeClass("btn-primary");
-    $("#about_bn").removeClass("btn-outline-primary");
-    $("#about_bn").addClass("btn-primary");
+    $("#about_bn").removeClass("btn-secondary");
+    $("#about_bn").removeClass("btn-outline-secondary");
+    $("#about_bn").addClass("btn-secondary");
     a_c = 0;
   }
 }
@@ -61,16 +61,16 @@ function toggle_content_projects() {
   if (!p_c) {
     $("#projects_content").show();
     $("#projects_bn").val("hide");
-    $("#projects_bn").removeClass("btn-primary");
-    $("#projects_bn").removeClass("btn-outline-primary");
-    $("#projects_bn").addClass("btn-outline-primary");
+    $("#projects_bn").removeClass("btn-secondary");
+    $("#projects_bn").removeClass("btn-outline-secondary");
+    $("#projects_bn").addClass("btn-outline-secondary");
     p_c = 1;
   } else {
     $("#projects_content").hide();
     $("#projects_bn").val("show");
-    $("#projects_bn").removeClass("btn-primary");
-    $("#projects_bn").removeClass("btn-outline-primary");
-    $("#projects_bn").addClass("btn-primary");
+    $("#projects_bn").removeClass("btn-secondary");
+    $("#projects_bn").removeClass("btn-outline-secondary");
+    $("#projects_bn").addClass("btn-secondary");
     p_c = 0;
   }
 }
@@ -79,16 +79,16 @@ function toggle_content_contact() {
   if (!c_c) {
     $("#contact_content").show();
     $("#contact_bn").val("hide");
-    $("#contact_bn").removeClass("btn-primary");
-    $("#contact_bn").removeClass("btn-outline-primary");
-    $("#contact_bn").addClass("btn-outline-primary");
+    $("#contact_bn").removeClass("btn-secondary");
+    $("#contact_bn").removeClass("btn-outline-secondary");
+    $("#contact_bn").addClass("btn-outline-secondary");
     c_c = 1;
   } else {
     $("#contact_content").hide();
     $("#contact_bn").val("show");
-    $("#contact_bn").removeClass("btn-primary");
-    $("#contact_bn").removeClass("btn-outline-primary");
-    $("#contact_bn").addClass("btn-primary");
+    $("#contact_bn").removeClass("btn-secondary");
+    $("#contact_bn").removeClass("btn-outline-secondary");
+    $("#contact_bn").addClass("btn-secondary");
     c_c = 0;
   }
 }
