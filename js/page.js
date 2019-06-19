@@ -1,19 +1,23 @@
-var test = document.getElementById("test");
+//var test = document.getElementById("test");
 var url = '/input';
 
 function sendData() {
-  var data = "a=" + $("#test").val().toString();
+  //var data = "a=" + $("#test").val().toString();
+  var data = "a=3";
   return data;
 }
+
 function success(response) {
   console.log("post success" + response);
   $("#result").text(response);
 // do something here 
 }
+
 function failure(response) {
   console.log("post fail" + response);
   $("#result").text("failure");
 }
+
 function submit_form() {
   $.get(url, sendData(), success)
    .fail(failure);
@@ -101,4 +105,23 @@ function tag_home() {
   toggle_content_about();
   toggle_content_contact();
 
+}
+
+function getUrlVars()
+{
+  var vars = [], hash;
+  var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  for(var i = 0; i < hashes.length; i++)
+  {
+      hash = hashes[i].split('=');
+      vars.push(hash[0]);
+      vars[hash[0]] = hash[1];
+  }
+  return vars;
+}
+
+function ready() {
+  tag_home();
+  var vars = getUrlVars();
+  console.log(vars);
 }

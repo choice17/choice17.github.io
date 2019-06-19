@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/common.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="./js/youtube.js" type="text/javascript"></script>
+    <!-- <script src="./js/youtube.js" type="text/javascript"></script> -->
     <script src="./js/googleMap.js" type="text/javascript"></script>
     <script src="./js/page.js" type="text/javascript"></script>
   </head>
@@ -21,7 +21,7 @@
 
     <!-- Navbar (sit on top) -->
     <div class="w3-top nav nav-tab">
-      <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2 ">
+      <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2">
         <a href="#home" class="w3-bar-item w3-button w3-mobile" onclick="tag_topic(9)">
           <b>CHOI</b> Portfolio
         </a>
@@ -34,9 +34,9 @@
 
       </div>
     </div>
-    <div class="nav nav-tab">
-      <div class="w3-bar w3-white w3-wide w3-padding-8 w3-card-2 ">
-              </div>
+    <div class="nav nav-tab bg-dark">
+      <div class="d-none d-sm-block" style="padding:25px"></div>
+      <div class="d-block d-sm-none" style="padding:23px"></div>
     </div>
     <!-- Header -->
     <header class="w3-display-container w3-content w3-wide w3-card-2"
@@ -273,7 +273,7 @@ The model is tested on Nvidia-TX1, a small sized embedded system, it able to ach
     <script src="https://maps.googleapis.com/maps/api/js?8&callback=initMap"
             async defer></script>
     <script type="text/javascript">
-      $(document).ready(tag_home());
+      $(document).ready(ready());
     </script>
   </body>
 </html>
